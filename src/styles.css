@@ -1,0 +1,207 @@
+body {
+    font-family: "Manrope", sans-serif;
+    text-decoration: #596e79;
+    font-weight: lighter;
+    background-color: white;
+  }
+  
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+    margin: 60px;
+    background-color: #f0ece2;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .one {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    background-color: #f0ece2;
+  }
+  .two {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 1 / 5;
+    background-color: #dfd3c3;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    background-color: #dfd3c3;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .four {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    background-color: #dfd3c3;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .five {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+    background-color: #dfd3c3;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  h1 {
+    color: #247291;
+    font-family: "Lora", serif;
+    font-size: 60px;
+    text-align: center;
+    display: block;
+    font-weight: bolder;
+  }
+  
+  h2 {
+    color: #247291;
+    font-family: "Lora", serif;
+    font-size: 40px;
+    text-align: center;
+    display: block;
+    font-weight: bolder;
+  }
+  
+  .dayPrevision {
+    color: #596e79;
+    font-family: "Lora", serif;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .tempPrincipale {
+    color: #247291;
+    font-family: "Lora", serif;
+    font-size: 30px;
+    text-align: center;
+    font-style: italic;
+    font-size: 60px;
+  }
+  
+  .units {
+    color: #247291;
+    font-family: "Lora", serif;
+    font-size: 30px;
+    text-align: center;
+    font-style: italic;
+    font-size: 20px;
+  }
+  
+  #celsius-link {
+    text-decoration: none;
+    color: #247291;
+    font-family: "Lora", serif;
+    font-size: 30px;
+    font-style: italic;
+    font-size: 20px;
+    text-decoration: underline;
+  }
+  
+  #fahrenheit-link {
+    text-decoration: none;
+    color: #247291;
+    font-family: "Lora", serif;
+    font-size: 30px;
+    font-style: italic;
+    font-size: 20px;
+    text-decoration: underline;
+  }
+  
+  .logoPrincipal {
+    font-size: 100px;
+    text-align: center;
+    color: #247291;
+    margin: 20px;
+  }
+  .descriptionPrincipale {
+    margin-top: 10px;
+  }
+  .city {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .currentDate {
+    color: #a8896c;
+    font-family: "Lora", serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .currentHour {
+    color: #a8896c;
+    font-family: "Lora", serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    margin: 15px;
+  }
+  
+  .weatherPrecisions {
+    color: #596e79;
+    font-family: "Lora", serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    margin: 30px;
+  }
+  
+  .heuresSecondaires {
+    color: #596e79;
+    font-family: "Lora", serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .emojisSecondaires {
+    color: #a8896c;
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  .tempSecondaires {
+    color: #596e79;
+    font-family: "Lora", serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .weekPrevisions .emojisSecondaires {
+    font-size: 45px;
+  }
+  
+  #geoposition {
+    background-color: #a8896c;
+    color: azure;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    margin: 20px 20px 20px 0px;
+    cursor: pointer;
+  }
+  
+  #searchSubmit {
+    text-decoration: none;
+    background-color: #247291;
+    color: azure;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    margin: 20px 20px 20px 0px;
+    cursor: pointer;
+  }
+  
