@@ -78,21 +78,22 @@ function displayCityWeather(response) {
   let tempMin = Math.round(response.data.main.temp_min);
   let humidity = response.data.main.humidity;
   let windSpeed = Math.round(response.data.wind.speed);
-  let weather = response.data.weather[0].description;
-  weather = weather.charAt(0).toUpperCase() + weather.slice(1);
-  let weatherIcon = response.data.weather.icon;
+  let description = response.data.weather[0].description;
+  description = description.charAt(0).toUpperCase() + description.slice(1);
+  let weatherIcon = response.data.weather[0].icon;
+  
 
-  let cityDisplayed = document.querySelector("#city");
-  cityDisplayed.innerHTML = city;
+  let cityElement= document.querySelector("#city");
+  cityElement.innerHTML = city;
 
-  let countr = document.querySelector("#country");
-  countr.innerHTML = country;
+  let countryElement = document.querySelector("#country");
+  countryElement.innerHTML = country;
 
-  let mainTemp = document.getElementById("tempPrincipale");
-  mainTemp.innerHTML = temperature;
+  let temperatureElement = document.getElementById("tempPrincipale");
+  temperatureElement.innerHTML = temperature;
 
-  let description = document.querySelector("#descriptionPrincipale");
-  description.innerHTML = weather;
+  let descriptionElement = document.querySelector("#descriptionPrincipale");
+  descriptionElement.innerHTML = description;
 
   let minTemp = document.querySelector("#mainTempMin");
   minTemp.innerHTML = tempMin;
@@ -100,17 +101,18 @@ function displayCityWeather(response) {
   let maxTemp = document.querySelector("#mainTempMax");
   maxTemp.innerHTML = tempMax;
 
-  let feels = document.querySelector("#ressenti");
-  feels.innerHTML = ressenti;
+  let feelsLikeElement = document.querySelector("#ressenti");
+  feelsLikeElement.innerHTML = ressenti;
 
-  let hum = document.querySelector("#humidity");
-  hum.innerHTML = humidity;
+  let humidityElement= document.querySelector("#humidity");
+  humidityElement.innerHTML = humidity;
 
-  let speed = document.querySelector("#windSpeed");
-  speed.innerHTML = windSpeed;
+  let windSpeedElement = document.querySelector("#windSpeed");
+  windSpeedElement.innerHTML = windSpeed;
 
-  //let mainLogo=document.querySelector('#mainLogo');
-  //mainLogo.innerHTML=weatherIcon;
+  let mainImage=document.querySelector('#mainImage');
+  mainImage.setAttribute("src",`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`);
+  mainImage.setAttribute("alt", description);
 }
 
 // search city
@@ -133,7 +135,7 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-searchCity("New York");
+searchCity("Paris");
 
 //listen when submit is clicked
 let cityForm = document.querySelector("#city-form");
