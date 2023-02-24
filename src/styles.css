@@ -6,13 +6,16 @@ body {
   }
   
   .wrapper {
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     grid-auto-rows: minmax(100px, auto);
-    margin: 60px;
+    
     background-color: #f0ece2;
-    padding: 20px;
+    
     border-radius: 20px;
   }
   
@@ -92,10 +95,10 @@ body {
   .units {
     color: #247291;
     font-family: "Lora", serif;
-    font-size: 30px;
-    text-align: center;
     font-style: italic;
-    font-size: 20px;
+    position:relative;
+    font-size:16px;
+    top:-34px;
   }
   
   #celsius-link {
@@ -205,3 +208,6 @@ body {
     cursor: pointer;
   }
   
+  .source{
+    padding:0;
+  }
