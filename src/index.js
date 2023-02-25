@@ -44,24 +44,6 @@ if (currentHour) {
   currentHour.innerHTML = `${hours}:${minutes}`;
 }
 
-// click to update temperature in C or F
-function changeTempInC(event) {
-  event.preventDefault(); //avoid reloading the page
-  let tempPrincipale = document.querySelector(".tempPrincipale");
-  tempPrincipale.innerHTML = "19";
-}
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", changeTempInC);
-
-function changeTempInF(event) {
-  event.preventDefault(); //avoid reloading the page
-  let tempPrincipale = document.querySelector(".tempPrincipale");
-  tempPrincipale.innerHTML = "66";
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", changeTempInF);
 
 ///////////////
 
@@ -70,7 +52,10 @@ fahrenheitLink.addEventListener("click", changeTempInF);
 function displayCityWeather(response) {
   console.log(response.data);
 
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature=response.data.main.temp
+
+  
+  let temperature = Math.round(celsiusTemperature);
   let city = response.data.name;
   let country = response.data.sys.country;
   let ressenti = Math.round(response.data.main.feels_like);
@@ -89,8 +74,17 @@ function displayCityWeather(response) {
   let countryElement = document.querySelector("#country");
   countryElement.innerHTML = country;
 
+  
   let temperatureElement = document.getElementById("tempPrincipale");
+
+  //everytime a city is searched put Celsius active by default
+  if (temperatureElement.classList.contains('active')) {
+  temperatureElement.innerHTML = temperature}
+  else
+  {celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   temperatureElement.innerHTML = temperature;
+  }
 
   let descriptionElement = document.querySelector("#descriptionPrincipale");
   descriptionElement.innerHTML = description;
@@ -135,6 +129,8 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
+let celsiusTemperature = null;
+
 searchCity("Paris");
 
 //listen when submit is clicked
@@ -164,3 +160,36 @@ function getCurrentLocation(event) {
 
 let positionButton = document.querySelector("#geoposition");
 positionButton.addEventListener("click", getCurrentLocation);
+
+
+// click to update temperature in C or F
+
+function changeTempInF(event) {
+  event.preventDefault(); //avoid reloading the page
+
+  // remove the active class from the celsius link and add active class to farhenheit link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+
+  let fahrenheitTemperature = (celsiusTemperature * 9/5) + 32;
+  let tempPrincipale = document.querySelector(".tempPrincipale");
+  tempPrincipale.innerHTML =  Math.round(fahrenheitTemperature);
+} 
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", changeTempInF);
+
+function changeTempInC(event) {
+  event.preventDefault(); //avoid reloading the page
+
+  // remove the active class from the f link and add active class to c link
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  let tempPrincipale = document.querySelector(".tempPrincipale");
+  tempPrincipale.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", changeTempInC);
+

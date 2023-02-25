@@ -93,7 +93,7 @@ body {
   }
   
   .units {
-    color: #247291;
+    color: #596e79;
     font-family: "Lora", serif;
     font-style: italic;
     position:relative;
@@ -102,26 +102,34 @@ body {
   }
   
   #celsius-link {
-    text-decoration: none;
-    color: #247291;
+    color: #596e79;;
     font-family: "Lora", serif;
     font-size: 30px;
     font-style: italic;
     font-size: 20px;
-    text-decoration: underline;
   }
   
   #fahrenheit-link {
-    text-decoration: none;
-    color: #247291;
+    color: #596e79;;
     font-family: "Lora", serif;
     font-size: 30px;
     font-style: italic;
     font-size: 20px;
-    text-decoration: underline;
+    text-decoration-thickness: -50%;
+  }
+
+  .active{
+    text-decoration: none;
+    color:#247291;
+    cursor: default;
+    font-weight: bold;
+  }
+
+  .active :hover{
+    text-decoration: none;
   }
   
-  .logoPrincipal {
+  .mainLogo {
     font-size: 100px;
     text-align: center;
     color: #247291;
@@ -211,3 +219,4 @@ body {
   .source{
     padding:0;
   }
+
