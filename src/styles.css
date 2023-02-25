@@ -129,8 +129,8 @@ body {
     text-decoration: none;
   }
   
-  .mainLogo {
-    font-size: 100px;
+ #mainImage {
+    width: 120px;
     text-align: center;
     color: #247291;
     margin: 20px;
