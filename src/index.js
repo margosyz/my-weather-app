@@ -263,7 +263,7 @@ if (currentDate) {
 let currentHour = document.getElementsByClassName("currentHour")[0];
 console.log(currentHour);
 if (currentHour) {
-  currentHour.innerHTML = `${hours}:${minutes}`;
+  currentHour.innerHTML = `${hours}:${minutes.toString().padStart(2, '0')}`;
 }
 
 ///
