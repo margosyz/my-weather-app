@@ -1,3 +1,17 @@
+// 
+function getForecast(coordinates){
+  console.log(coordinates);
+
+  let apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  console.log(apiUrl);
+
+  axios.get(apiUrl).then(displayWeekForecast);
+  
+}
+
+
 //Function to display city informations about weather in HTML
 
 function displayCityWeather(response) {
@@ -59,6 +73,8 @@ function displayCityWeather(response) {
   let mainImage=document.querySelector('#mainImage');
   mainImage.setAttribute("src",`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`);
   mainImage.setAttribute("alt", description);
+
+  getForecast(response.data.coord);
 }
 
 // search city ang get weather API response and execute displayCityWeather function to diplay information in HTML
@@ -127,7 +143,8 @@ function changeTempInC(event) {
   tempPrincipale.innerHTML = Math.round(celsiusTemperature);
 }
 
-function displayWeekForecast(){
+function displayWeekForecast(response){
+  console.log(response.data.daily);
   let weekForecastElement=document.querySelector("#week-forecast");
 
   let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
@@ -153,7 +170,7 @@ function displayWeekForecast(){
 
 weekForecastHTML=weekForecastHTML+ `</div>`;
 weekForecastElement.innerHTML=weekForecastHTML;
-console.log(weekForecastHTML);
+//console.log(weekForecastHTML);
 }
 
 
@@ -228,4 +245,3 @@ if (currentHour) {
 
 ///
 
-displayWeekForecast()
