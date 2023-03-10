@@ -127,6 +127,36 @@ function changeTempInC(event) {
   tempPrincipale.innerHTML = Math.round(celsiusTemperature);
 }
 
+function displayWeekForecast(){
+  let weekForecastElement=document.querySelector("#week-forecast");
+
+  let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+  let weekForecastHTML = `<div class="col">`;
+  
+  days.forEach(function(day) {
+  weekForecastHTML=
+    weekForecastHTML+
+  `
+  <div class="row dayPrevision py-3">
+  <div class="jourDigits col-3">${day}
+   </div>
+  <div class="emojisSecondaires col-3">
+    <i class="fa-solid fa-cloud"></i>
+  </div>
+  <div class="col-6">
+    <div class="tempMinMax">-3 | <strong> 2°C </strong></div>
+  </div>
+</div>
+`;
+});
+
+weekForecastHTML=weekForecastHTML+ `</div>`;
+weekForecastElement.innerHTML=weekForecastHTML;
+console.log(weekForecastHTML);
+}
+
+
 //////////////////////// functions above
 
 //Create global variable to stock celsius temperature
@@ -197,3 +227,5 @@ if (currentHour) {
 }
 
 ///
+
+displayWeekForecast()
