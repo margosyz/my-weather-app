@@ -144,35 +144,58 @@ function changeTempInC(event) {
 }
 
 function displayWeekForecast(response){
-  console.log(response.data.daily);
+
+  let forecast= response.data.daily;
+  console.log(forecast);
+  
+
   let weekForecastElement=document.querySelector("#week-forecast");
 
-  let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  //let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
   let weekForecastHTML = `<div class="col">`;
   
-  days.forEach(function(day) {
+  forecast.forEach(function(forecastDay, index) {
+    if (index <6) {
   weekForecastHTML=
     weekForecastHTML+
   `
   <div class="row dayPrevision py-3">
-  <div class="jourDigits col-3">${day}
+  <div class="jourDigits col-3">${formatDate(forecastDay.dt)}
    </div>
   <div class="emojisSecondaires col-3">
-    <i class="fa-solid fa-cloud"></i>
+    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="forecast weather image" width="85"/>
   </div>
   <div class="col-6">
-    <div class="tempMinMax">-3 | <strong> 2°C </strong></div>
+    <div class="tempMinMax )"> <strong class="maxTemp">${Math.round(forecastDay.temp.max)}° </strong> |  ${Math.round(forecastDay.temp.min)}° </div>
   </div>
 </div>
 `;
+}
 });
+
 
 weekForecastHTML=weekForecastHTML+ `</div>`;
 weekForecastElement.innerHTML=weekForecastHTML;
-//console.log(weekForecastHTML);
 }
+//console.log(weekForecastHTML);
 
+//Format the date according to timestamp
+function formatDate(timestamp){
+  let date= new Date(timestamp*1000);
+  let day=date.getDay();
+  let days = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ];
+  return days[day];
+
+}
 
 //////////////////////// functions above
 

@@ -189,6 +189,9 @@ body {
     font-style: italic;
     text-align: center;
   }
+  .maxTemp{
+    font-weight: bold;
+  }
   
   .weekPrevisions .emojisSecondaires {
     font-size: 45px;
