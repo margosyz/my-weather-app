@@ -203,7 +203,7 @@ function formatDate(timestamp){
 let celsiusTemperature = null;
 
 //display default city informations
-searchCity("Paris");
+searchCity("Sousse");
 
 //listen when submit is clicked
 let cityForm = document.querySelector("#city-form");
